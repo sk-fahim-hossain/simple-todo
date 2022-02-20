@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Todo list</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>To Do List</h2>
+        <input type="text" name="" id="Todo-input">
+        <button id="Todo-button">+</button>
+        <div id="todo-list-container">
+
+        </div>
+    </div>
+
+    <script>
+        const todoInput = document.getElementById('Todo-input');
+        const todoBtn = document.getElementById('Todo-button');
+        const todoListContainer = document.getElementById('todo-list-container');
+
+        
+        todoBtn.addEventListener('click',function() {
+            console.log('he click me');
+            const paragraph = document.createElement('p');
+            paragraph.innerText = todoInput.value;
+            todoListContainer.appendChild(paragraph);
+            paragraph.addEventListener('click',function() {
+                paragraph.style.textDecoration = 'line-through'
+            })
+            paragraph.addEventListener('dblclick',function() {
+                todoListContainer.removeChild(paragraph);
+            })
+            todoInput.value = '';
+        })
+        
+    </script>
+</body>
+</html>
